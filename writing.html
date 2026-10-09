@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Presentations and Writing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+/* Layout: teal header band with name, one-line tagline, and anchor nav; one reading column of sections; long lists sit in accordions; teal footer with contact, profile links, and disclaimer. */
+:root {
+  --bg: #F7F8F9;
+  --surface: #EEF0F2;
+  --band: #1F5F63;
+  --on-band: #F7F8F9;
+  --on-band-muted: #C9DADB;
+  --text: #000000;
+  --heading: #1F5F63;
+  --link: #1B2A41;
+  --muted: #5E6873;
+  --accent: #E8A598;
+  --on-accent: #1B2A41;
+  --rule: #D9DDE1;
+
+  --font-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+    --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+    --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+  --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+  --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-feature-settings: "lnum";
+  font-variant-numeric: lining-nums;
+  color: var(--heading);
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.2;
+}
+p { margin: 0; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 24px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } body { font-size: 17px; } }
+
+/* Header band */
+.band { background: var(--band); color: var(--on-band); }
+.masthead { padding-block: 52px 32px; display: grid; gap: 10px; }
+.masthead h1 { color: var(--on-band); font-size: clamp(2.1rem, 5.5vw, 3.2rem); letter-spacing: 0.005em; }
+.masthead .tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--accent); }
+.masthead .role { font-size: 1.05rem; color: var(--on-band-muted); }
+nav.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--band);
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+nav.site ul {
+  list-style: none; margin: 0; padding-block: 0;
+  display: flex; gap: 4px 24px; overflow-x: auto; scrollbar-width: none;
+}
+nav.site ul::-webkit-scrollbar { display: none; }
+nav.site a {
+  display: block; padding-block: 12px 10px; white-space: nowrap;
+  color: var(--on-band); text-decoration: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.875rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+}
+nav.site a:hover, nav.site a.active { border-bottom-color: var(--accent); }
+
+/* Sections */
+main { padding-block: 16px 64px; }
+section { padding-block: 44px 8px; scroll-margin-top: 60px; display: grid; gap: 22px; }
+section > h2 { font-size: 1.75rem; padding-bottom: 10px; position: relative; }
+section > h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--accent); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.prose { max-width: 65ch; display: grid; gap: 16px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; align-items: start; }
+@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border-radius: 6px; padding: 20px; display: grid; gap: 14px; }
+.monogram {
+  aspect-ratio: 1 / 1; max-width: 100%; border-radius: 4px;
+  background: var(--accent); color: var(--on-accent);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 3rem; letter-spacing: 0.04em;
+}
+.facts { display: grid; gap: 10px; margin: 0; }
+.facts dt { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+.subsection { display: grid; gap: 16px; padding-top: 12px; }
+
+/* Dated lists */
+.dated { list-style: none; margin: 0; padding: 0; display: grid; }
+.dated li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.dated li:last-child { border-bottom: 1px solid var(--rule); }
+.dated .when { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.dated .what { min-width: 0; }
+.dated .what .detail { display: block; color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 560px) {
+  .dated li { grid-template-columns: minmax(0, 1fr); }
+  .dated .when { text-align: left; }
+}
+.group { display: grid; gap: 12px; }
+.subgroup { display: grid; gap: 8px; padding-top: 6px; }
+
+/* Citations */
+.cites { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 70ch; }
+.cites li { padding-left: 1.5em; text-indent: -1.5em; }
+.smallcaps { font-variant: small-caps; letter-spacing: 0.02em; }
+.tag { display: inline-block; text-indent: 0; font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 1px 7px; border-radius: 3px; vertical-align: 2px; margin-left: 6px; }
+
+/* Accordions */
+details.acc { border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); max-width: 100%; }
+details.acc > summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: center;
+}
+details.acc > summary::-webkit-details-marker { display: none; }
+details.acc > summary .acc-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); line-height: 1.25; }
+details.acc > summary .acc-sub { grid-column: 1; color: var(--muted); font-size: 0.92rem; }
+details.acc > summary .chev {
+  grid-column: 2; grid-row: 1 / span 2;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 5px 10px; white-space: nowrap;
+}
+details.acc > summary .chev::after { content: "Show all"; }
+details.acc[open] > summary .chev::after { content: "Hide"; }
+details.acc > summary:hover .acc-title { text-decoration: underline; text-underline-offset: 0.15em; }
+details.acc .acc-body { padding: 0 20px 16px; }
+.accs { display: grid; gap: 14px; }
+
+/* Blog list */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 72ch; }
+.posts li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; }
+.posts .date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+@media (max-width: 560px) { .posts li { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* Experience */
+.jobs { display: grid; gap: 26px; max-width: 70ch; }
+.job { display: grid; gap: 6px; }
+.job .meta { color: var(--muted); font-size: 0.95rem; }
+
+/* Hero lead and buttons */
+.masthead .lead { color: var(--on-band); font-size: 1.1rem; max-width: 62ch; padding-top: 10px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 12px; }
+.btn {
+  display: inline-block; text-decoration: none; border-radius: 4px; padding: 9px 16px;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em;
+}
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.ghost { color: var(--on-band); border: 1px solid rgba(255,255,255,0.45); }
+.btn:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+
+/* Teaching materials */
+.mat-groups { display: grid; gap: 28px; }
+.mats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+.mats li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.mats .mat-type { font-family: var(--font-display); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mats .mat-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+.mats p { font-size: 0.95rem; line-height: 1.5; }
+.howto { max-width: 65ch; display: grid; gap: 12px; }
+.tag.soon { margin-left: 0; margin-right: 8px; background: var(--surface); color: var(--muted); border: 1px solid var(--rule); justify-self: start; }
+.mats .tag.soon { background: var(--bg); }
+.status-note { font-size: 0.95rem; }
+.roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; max-width: 760px; }
+.roles li { border-top: 3px solid var(--accent); background: var(--surface); border-radius: 0 0 6px 6px; padding: 14px 16px; display: grid; gap: 2px; }
+.roles .role-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); }
+.roles .role-second { font-size: 0.9rem; color: var(--muted); }
+.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.license { border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 6px 6px 0; padding: 18px 20px; display: grid; gap: 12px; max-width: 72ch; }
+.cite-box { display: grid; gap: 8px; }
+.cite-text { font-size: 0.95rem; background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; user-select: all; }
+.cite-box button.copy { justify-self: start; }
+
+/* Jump links */
+.jump { list-style: none; margin: 0; padding: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.jump a { color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; }
+.jump a:hover { color: var(--heading); border-bottom-color: var(--accent); }
+.masthead.compact { padding-block: 32px 22px; }
+.site-name { margin: 0; }
+.site-name a { color: var(--on-band); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.2; }
+
+/* Boxes (assignments, weeks) */
+.boxes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 14px; }
+.boxes > li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.box-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.box-label { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.box-title { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; line-height: 1.3; color: var(--heading); margin: 0; }
+.boxes p { font-size: 0.95rem; line-height: 1.5; }
+.weight { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 2px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.acc-body .subgroup:first-child { padding-top: 0; }
+.about.solo { grid-template-columns: minmax(0, 1fr); }
+.portrait { display: block; width: 100%; max-width: 220px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; justify-self: center; border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.card .more { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
+.intro-grid { align-items: start; }
+.intro-left { display: grid; gap: 28px; min-width: 0; }
+.mindset { display: flex; align-items: center; gap: 16px; background: var(--surface); color: var(--text); border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 16px 20px; max-width: 760px; }
+.mindset-icon { flex: 0 0 auto; width: 40px; height: 40px; color: var(--heading); }
+.mindset-label { font-family: var(--font-display); color: var(--heading); font-weight: 700; }
+.mindset p { font-family: var(--font-body); font-weight: 400; font-size: clamp(1.05rem, 2.2vw, 1.2rem); line-height: 1.45; margin: 0; }
+.wrap.hero-grid { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 36px; align-items: center; }
+.hero-text { display: grid; gap: 10px; min-width: 0; }
+.hero-art { margin: 0; min-width: 0; }
+.hero-art img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,0.28); }
+@media (max-width: 900px) { .wrap.hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+p.prose { display: block; }
+.box-title { text-transform: none; letter-spacing: 0; }
+.boxes.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 640px) { .boxes.two { grid-template-columns: minmax(0, 1fr); } }
+.weeklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.weeklist > li { background: var(--surface); border-radius: 6px; padding: 14px 18px; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 4px 18px; align-items: start; }
+.weeklist .wk { font-family: var(--font-display); font-weight: 700; color: var(--heading); line-height: 1.3; }
+.weeklist .wk span { display: block; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.weeklist .wk-body { display: grid; gap: 4px; min-width: 0; }
+.weeklist p { font-size: 0.95rem; line-height: 1.5; }
+@media (max-width: 560px) { .weeklist > li { grid-template-columns: minmax(0, 1fr); } }
+.acc-body .cites { padding-top: 4px; }
+
+/* Footer */
+footer.band { padding-block: 44px; }
+footer .wrap { display: grid; gap: 18px; }
+footer h2 { color: var(--on-band); font-size: 1.5rem; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-size: 1.1rem; user-select: all; color: var(--on-band); }
+button.copy {
+  font: inherit; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em;
+  background: var(--accent); color: var(--on-accent); border: 0; border-radius: 4px; padding: 7px 14px; cursor: pointer;
+}
+.profiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+footer a { color: var(--on-band); }
+.disclaimer { color: var(--on-band-muted); font-size: 0.9rem; max-width: 70ch; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 16px; }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap masthead hero-grid">
+    <div class="hero-text">
+      <h1>Julie Tedjeske Crane</h1>
+      <p class="tagline">Law librarian. Legal research professor.</p>
+      <p class="lead">Julie shares the materials from her course AI and Legal Research on this site so that law librarians and legal educators can adapt the materials for their own teaching. The materials are free to use for noncommercial educational purposes under a Creative Commons license.</p>
+      <div class="btns">
+        <a class="btn primary" href="index.html#materials">See the AI and Legal Research course</a>
+        <a class="btn ghost" href="index.html#license">License and reuse</a>
+      </div>
+    </div>
+    <figure class="hero-art">
+      <img src="librarian-instructor-life.jpg" width="1408" height="768" alt="Hand-drawn, colored illustration of an open notebook titled Librarian and Instructor Life. Arrows lead from the title to labeled sketches of Julie&rsquo;s work: Instructional Design, AI in Education, In the Classroom, My Scholarship, Blogging, Conference Presentations, University Library System, and Law School Librarian. The sketches show a syllabus, students in a classroom, books, a speaker at a podium, and two library buildings.">
+    </figure>
+  </div>
+  <nav class="site" aria-label="Pages">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">AI Course</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="writing.html" class="active" aria-current="page">Presentations &amp; Writing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <ul class="jump" aria-label="On this page">
+    <li><a href="#scholarship">Scholarship</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#writing">Writing</a></li>
+  </ul>
+
+  <section id="scholarship" aria-labelledby="scholarship-h">
+    <h2 id="scholarship-h">Scholarship</h2>
+    <div class="accs">
+    <details class="acc" id="acc-articles">
+      <summary>
+        <span class="acc-title">Articles in Refereed Journals</span>
+        <span class="acc-sub">2 articles, 2025 and 2026</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="cites">
+          <li>Julie Tedjeske Crane, <a href="https://insight.dickinsonlaw.psu.edu/fac_works/532/"><i>Teaching Legal Research Students to Be the &ldquo;Human in the Loop,&rdquo;</i></a> 32 <span class="smallcaps">Persp.: Teaching Legal Rsch. &amp; Writing</span> 90 (2026).</li>
+          <li>Julie Tedjeske Crane, <a href="https://insight.dickinsonlaw.psu.edu/fac_works/501/"><i>Grading Legal Research</i></a>, 117 <span class="smallcaps">Law Libr. J.</span> 261 (2025).</li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-chapters">
+      <summary>
+        <span class="acc-title">Book Chapters</span>
+        <span class="acc-sub">2 chapters in <i>Creating Healthy Library Workplaces</i> (Jason Martin ed., 2026)</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="cites">
+          <li>Julie Tedjeske Crane, <a href="https://insight.dickinsonlaw.psu.edu/book_contributions/15/"><i>Beyond &ldquo;Follow Your Passion&rdquo;: Cultivating Meaning and Purpose in Library Work</i></a>, <i>in</i> <span class="smallcaps">Creating Healthy Library Workplaces: Five Factors That Improve Employee Engagement and Satisfaction</span> 215 (Jason Martin ed., 2026).</li>
+          <li>Julie Tedjeske Crane, <a href="https://insight.dickinsonlaw.psu.edu/book_contributions/16/"><i>Slow Librarianship and Slow Productivity: Complementary Approaches to Sustainable Work</i></a>, <i>in</i> <span class="smallcaps">Creating Healthy Library Workplaces: Five Factors That Improve Employee Engagement and Satisfaction</span> 137 (Jason Martin ed., 2026).</li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-review">
+      <summary>
+        <span class="acc-title">Book Review</span>
+        <span class="acc-sub"><i>Law Library Journal</i>, 2023</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="cites">
+          <li>Julie Tedjeske Crane, <a href="https://insight.dickinsonlaw.psu.edu/fac-works/344/">Book Review</a>, 115 <span class="smallcaps">Law Libr. J.</span> 217 (2023) (reviewing <span class="smallcaps">Andrew Koppelman, Burning Down the House: How Libertarian Philosophy Was Corrupted by Delusion and Greed</span> (2022)).</li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-prof">
+      <summary>
+        <span class="acc-title">Professional Publications</span>
+        <span class="acc-sub"><i>AALL Spectrum</i>, 2024</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="cites">
+          <li>Julie Tedjeske Crane, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4800901"><i>Embracing a &lsquo;Good Enough&rsquo; Approach to Your Work Life</i></a>, <span class="smallcaps">AALL Spectrum</span>, May/June 2024, at 3.</li>
+        </ul>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <section id="presentations" aria-labelledby="presentations-h">
+    <h2 id="presentations-h">Presentations</h2>
+    <div class="accs">
+    <details class="acc" id="acc-aall-am">
+      <summary>
+        <span class="acc-title">American Association of Law Libraries Annual Meeting</span>
+        <span class="acc-sub">11 programs from 2022 to 2026: 5 as coordinator or moderator, 4 as presenter, and 2 Discussion Dens</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="subgroup">
+          <h4>Programs as Coordinator or Moderator</h4>
+          <ul class="dated">
+          <li><span class="what">Re-Focusing in the Attention Economy: Strategies for Law Librarians and Legal Educators <span class="detail">Pre-conference workshop; coordinator and presenter</span></span><span class="when">2026</span></li>
+          <li><span class="what">Beyond Point-and-Click Instruction: Teaching Analysis in Legal Research <span class="detail">Hot Topic; co-coordinator and co-moderator</span></span><span class="when">2025</span></li>
+          <li><span class="what">The Power of Deep Work and Slow Productivity: Strategies for Law Librarians in the Age of Distraction <span class="detail">Coordinator, moderator, and presenter</span></span><span class="when">2024</span></li>
+          <li><span class="what">Short-Form Teaching: Best Practices for Developing and Delivering Single-Session Trainings, CLEs, and Instructional Programs <span class="detail">Deep Dive; co-submitter, co-moderator, and presenter</span></span><span class="when">2023</span></li>
+          <li><span class="what">Incorporating User Experience Design and Design Thinking into Research Guide Development <span class="detail">Coordinator and moderator</span></span><span class="when">2022</span></li>
+        </ul>
+        </div>
+        <div class="subgroup">
+          <h4>Programs as Presenter</h4>
+          <ul class="dated">
+          <li><span class="what">The Power and Peril of Unfinished Work: How to Manage the Brain&rsquo;s Obsession with Your To-Do List to Increase Emotional Well-Being and Productivity</span><span class="when">2026</span></li>
+          <li><span class="what">Fostering Co-Intelligence While Maintaining Academic Integrity in Legal Research Instruction</span><span class="when">2025</span></li>
+          <li><span class="what">Cool Tools Caf&eacute;: CALI Author</span><span class="when">2023</span></li>
+          <li><span class="what">Cool Tools Caf&eacute;: Prezi Video</span><span class="when">2022</span></li>
+        </ul>
+        </div>
+        <div class="subgroup">
+          <h4>Discussion Dens</h4>
+          <ul class="dated">
+          <li><span class="what">Can We Make AI Course Policies for Legal Research That Actually Work? <span class="detail">Co-facilitator</span></span><span class="when">2026</span></li>
+          <li><span class="what">Grading Legal Research <span class="detail">Facilitator</span></span><span class="when">2024</span></li>
+        </ul>
+        </div>
+      </div>
+    </details>
+    <details class="acc" id="acc-webinars">
+      <summary>
+        <span class="acc-title">Webinars</span>
+        <span class="acc-sub">AALL and NEFLIN, 2026</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="https://elearning.aallnet.org/products/aall-webinar-balancing-metrics-and-mindfulness-an-introduction-to-slow-librarianship-for-law-library-professionals">Balancing Metrics and Mindfulness: An Introduction to Slow Librarianship for Law Library Professionals</a> <span class="detail">AALL webinar with speakers Kristina Alayan and Lorin Jackson; coordinator and moderator</span></span><span class="when">2026</span></li>
+          <li><span class="what"><a href="https://neflin.org/product/creating-healthy-library-workspaces-8-5-26/">Creating Healthy Library Workplaces</a> <span class="detail">Northeast Florida Library Information Network (NEFLIN) panel discussion with Jason Martin, Amy Fyn, Matthew Weirick Johnson, and Amanda Foster Kaufman on Martin&rsquo;s book <i>Creating Healthy Library Workplaces</i>; panelist</span></span><span class="when">2026</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-aals">
+      <summary>
+        <span class="acc-title">Association of American Law Schools Annual Meeting</span>
+        <span class="acc-sub">Works in Progress session, 2026</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Teaching Students to Be the Human in the AI Loop <span class="detail">Works in Progress session, Section on Law Libraries and Legal Information; author and presenter</span></span><span class="when">2026</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-cali">
+      <summary>
+        <span class="acc-title">CALIcon</span>
+        <span class="acc-sub">2 presentations, 2023 and 2026, with video recordings</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="https://youtu.be/CeFxNTCuZ7w">From Passive Consumers to Critical Evaluators: Teaching Legal Research Students to Be the Human in the Loop</a> <span class="detail">Presenter; <a href="https://youtu.be/CeFxNTCuZ7w">watch the recording on YouTube</a></span></span><span class="when">2026</span></li>
+          <li><span class="what"><a href="https://youtu.be/8SjRT-nQ-sY">Best Practices for Discussion Boards</a> <span class="detail">Presenter; <a href="https://youtu.be/8SjRT-nQ-sY">watch the recording on YouTube</a></span></span><span class="when">2023</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-biddle">
+      <summary>
+        <span class="acc-title">University of Pennsylvania Biddle Law Library Speaker Series</span>
+        <span class="acc-sub">1 presentation, 2026, available in Penn Law&rsquo;s repository</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="https://repository.law.upenn.edu/Documents/Detail/using-finks-taxonomy-to-design-legal-research-courses-that-promote-significant-learning/539038">Using Fink&rsquo;s Taxonomy to Design Legal Research Courses that Promote Significant Learning</a> <span class="detail">Presenter; <a href="https://repository.law.upenn.edu/Documents/Detail/using-finks-taxonomy-to-design-legal-research-courses-that-promote-significant-learning/539038">view the talk in Penn Law&rsquo;s repository</a></span></span><span class="when">2026</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-colist">
+      <summary>
+        <span class="acc-title">Co-List (Boulder Conference)</span>
+        <span class="acc-sub">2 papers, 2024 and 2025</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Using Fink&rsquo;s Taxonomy to Design Legal Research Courses that Promote Significant Learning <span class="detail">Author and presenter</span></span><span class="when">2025</span></li>
+          <li><span class="what"><a href="https://dsc.duq.edu/boulderconference/2024/Schedule/14/">Grading Legal Research</a> <span class="detail">Author and presenter</span></span><span class="when">2024</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-ttt">
+      <summary>
+        <span class="acc-title">Teaching the Teachers</span>
+        <span class="acc-sub">1 presentation, 2024</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="https://insight.dickinsonlaw.psu.edu/tttconference/2024/main/15/">Best Practices for Discussion Boards</a> <span class="detail">Presenter</span></span><span class="when">2024</span></li>
+        </ul>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <section id="writing" aria-labelledby="writing-h">
+    <h2 id="writing-h">Writing</h2>
+    <p class="prose">Julie has written 26 posts for the <a href="https://ripslawlibrarian.wordpress.com/author/julietedjeskecrane/">RIPS Law Librarian Blog</a> since 2021, and she has written 25 posts since 2022 for <a href="https://sites.psu.edu/keepingitbrief/author/jmt1/">Keeping It Brief</a>, the blog of the Dickinson Law library. In 2021 and 2022, she wrote 2 posts for the <a href="https://litsis.classcaster.net/author/juliecrane/">blog</a> of AALL&rsquo;s Legal Innovation and Technology Special Interest Section (LIT-SIS). From 2021 to 2025, she also wrote 15 columns, book reviews, and program reviews for the <a href="https://www.aallnet.org/allsis/news-events/allsis-newsletter/newsletter-archives/">ALL-SIS Newsletter</a> of AALL&rsquo;s Academic Law Libraries Special Interest Section.</p>
+    <div class="accs">
+    <details class="acc" id="acc-blog">
+      <summary>
+        <span class="acc-title">RIPS Law Librarian Blog</span>
+        <span class="acc-sub">26 posts, September 2021 to July 2026</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="posts">
+          <li><span class="date">July 15, 2026</span><span><a href="https://ripslawlibrarian.wordpress.com/2026/07/15/guest-post-fine-lets-talk-about-the-laptop-ban/">Fine. Let&rsquo;s Talk About the Laptop Ban</a></span></li>
+          <li><span class="date">June 5, 2025</span><span><a href="https://ripslawlibrarian.wordpress.com/2025/06/05/teaching-academic-integrity-and-ai/">Teaching, Academic Integrity, and AI</a></span></li>
+          <li><span class="date">Apr. 30, 2025</span><span><a href="https://ripslawlibrarian.wordpress.com/2025/04/30/the-zeigarnik-effect/">The Zeigarnik Effect</a></span></li>
+          <li><span class="date">Mar. 24, 2025</span><span><a href="https://ripslawlibrarian.wordpress.com/2025/03/24/what-are-your-big-picture-tips-for-legal-research/">What Are Your Big-Picture Tips for Legal Research?</a></span></li>
+          <li><span class="date">Feb. 24, 2025</span><span><a href="https://ripslawlibrarian.wordpress.com/2025/02/24/should-for-credit-legal-research-instruction-have-a-place-of-its-own-in-aall/">Should For-Credit Legal Research Instruction Have a Place of Its Own in AALL?</a></span></li>
+          <li><span class="date">Dec. 16, 2024</span><span><a href="https://ripslawlibrarian.wordpress.com/2024/12/16/year-end-musings-on-education-work-and-life/">Year-End Musings on Education, Work, and Life</a></span></li>
+          <li><span class="date">Nov. 4, 2024</span><span><a href="https://ripslawlibrarian.wordpress.com/2024/11/04/best-practices-for-designing-multiple-choice-questions/">Best Practices for Designing Multiple-Choice Questions</a></span></li>
+          <li><span class="date">Sept. 30, 2024</span><span><a href="https://ripslawlibrarian.wordpress.com/2024/09/30/a-culture-of-growth-in-legal-education/">A Culture of Growth in Legal Education</a></span></li>
+          <li><span class="date">July 16, 2024</span><span><a href="https://ripslawlibrarian.wordpress.com/2024/07/16/towards-more-constructive-analysis-a-reaction-to-meredith-farkas-critique-of-cal-newports-slow-productivity/">Towards More Constructive Analysis: A Reaction to Meredith Farkas&rsquo; Critique of Cal Newport&rsquo;s Slow Productivity</a></span></li>
+          <li><span class="date">Feb. 2, 2024</span><span><a href="https://ripslawlibrarian.wordpress.com/2024/02/02/adding-an-artificial-intelligence-module-to-a-1l-legal-research-course/">Adding an Artificial Intelligence Module to a 1L Legal Research Course</a></span></li>
+          <li><span class="date">Nov. 21, 2023</span><span><a href="https://ripslawlibrarian.wordpress.com/2023/11/21/hidden-potential-book-review/">Hidden Potential (Book Review)</a></span></li>
+          <li><span class="date">July 11, 2023</span><span><a href="https://ripslawlibrarian.wordpress.com/2023/07/11/evidence-based-training-methods/">Evidence-Based Training Methods</a></span></li>
+          <li><span class="date">May 19, 2023</span><span><a href="https://ripslawlibrarian.wordpress.com/2023/05/19/better-slide-decks/">Better Slide Decks</a></span></li>
+          <li><span class="date">Apr. 4, 2023</span><span><a href="https://ripslawlibrarian.wordpress.com/2023/04/04/should-law-librarians-develop-some-type-of-companion-document-for-the-acrls-framework-for-information-literacy/">Should Law Librarians Develop Some Type of Companion Document for the ACRL&rsquo;s Framework for Information Literacy?</a></span></li>
+          <li><span class="date">Mar. 1, 2023</span><span><a href="https://ripslawlibrarian.wordpress.com/2023/03/01/recent-research-on-flipped-learning/">Recent Research on Flipped Learning</a></span></li>
+          <li><span class="date">Nov. 15, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/11/15/writing-for-the-web/">Writing for the Web</a></span></li>
+          <li><span class="date">Oct. 4, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/10/04/librarians-as-educational-developers-purdues-impact-program/">Librarians as Educational Developers: Purdue&rsquo;s IMPACT Program</a></span></li>
+          <li><span class="date">Aug. 23, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/08/23/creating-significant-learning-experiences/">Creating Significant Learning Experiences</a></span></li>
+          <li><span class="date">June 27, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/06/27/emotions-and-emotional-work-in-law-librarianship/">Emotions and Emotional Work in Law Librarianship</a></span></li>
+          <li><span class="date">May 16, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/05/16/post-pandemic-teaching-and-learning/">Post-Pandemic Teaching and Learning</a></span></li>
+          <li><span class="date">Mar. 9, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/03/09/embedding-content-instruction-and-librarians-into-learning-management-systems-lmss/">Embedding Content, Instruction, and Librarians into Learning Management Systems (LMSs)</a></span></li>
+          <li><span class="date">Jan. 25, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/01/25/out-of-office-the-big-problem-and-bigger-promise-of-working-from-home/">Out of Office: The Big Problem and Bigger Promise of Working from Home</a></span></li>
+          <li><span class="date">Jan. 10, 2022</span><span><a href="https://ripslawlibrarian.wordpress.com/2022/01/10/remote-and-hybrid-work/">Remote and Hybrid Work</a></span></li>
+          <li><span class="date">Nov. 9, 2021</span><span><a href="https://ripslawlibrarian.wordpress.com/2021/11/09/best-practices-for-creating-libguides/">Best Practices for Creating LibGuides</a></span></li>
+          <li><span class="date">Oct. 13, 2021</span><span><a href="https://ripslawlibrarian.wordpress.com/2021/10/13/small-hack-and-big-picture-approaches-to-time-management/">Small Hack and Big Picture Approaches to Time Management</a></span></li>
+          <li><span class="date">Sept. 22, 2021</span><span><a href="https://ripslawlibrarian.wordpress.com/2021/09/22/what-i-learned-at-summer-camp-about-ux-design-improvements-for-libguides/">What I Learned at Summer Camp (About UX Design Improvements for LibGuides)</a></span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-kib">
+      <summary>
+        <span class="acc-title">Keeping It Brief</span>
+        <span class="acc-sub">25 posts for the Dickinson Law library&rsquo;s blog, September 2022 to September 2026</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="posts">
+          <li><span class="date">Sept. 30, 2026</span><span><a href="https://sites.psu.edu/keepingitbrief/2026/09/30/study-aids-what-they-are-and-where-to-find-them/">Study Aids: What They Are and Where to Find Them</a></span></li>
+          <li><span class="date">Aug. 26, 2026</span><span><a href="https://sites.psu.edu/keepingitbrief/2026/08/26/an-overview-of-westlaw-and-lexis-for-new-and-returning-law-students/">An Overview of Westlaw and Lexis+ for New and Returning Law Students</a></span></li>
+          <li><span class="date">Apr. 21, 2026</span><span><a href="https://sites.psu.edu/keepingitbrief/2026/04/21/updates-to-lexis-protege/">Updates to Lexis Prot&eacute;g&eacute;</a></span></li>
+          <li><span class="date">Apr. 2, 2026</span><span><a href="https://sites.psu.edu/keepingitbrief/2026/04/02/find-study-aids-by-topic-with-the-updated-study-aid-research-guide/">Find Study Aids by Topic with the Updated Study Aid Research Guide</a></span></li>
+          <li><span class="date">Jan. 14, 2026</span><span><a href="https://sites.psu.edu/keepingitbrief/2026/01/14/from-westlaw-precision-to-westlaw-advantage/">From Westlaw Precision to Westlaw Advantage</a></span></li>
+          <li><span class="date">Nov. 5, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/11/05/overview-of-protege-lexiss-generative-ai-feature/">Overview of Prot&eacute;g&eacute;, Lexis+&rsquo;s Generative AI Feature</a></span></li>
+          <li><span class="date">Oct. 8, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/10/08/new-supreme-court-term-2/">New Supreme Court Term</a></span></li>
+          <li><span class="date">Aug. 19, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/08/19/welcome-new-and-returning-students-2/">Welcome New and Returning Students!</a></span></li>
+          <li><span class="date">Apr. 16, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/04/16/april-22nd-is-earth-day/">April 22nd is Earth Day</a></span></li>
+          <li><span class="date">Mar. 26, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/03/26/parallel-search-on-westlaw/">Parallel Search on Westlaw</a></span></li>
+          <li><span class="date">Feb. 12, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/02/12/generative-ai-updates-to-lexis-and-bloomberg-law/">Generative AI Updates to Lexis and Bloomberg Law</a></span></li>
+          <li><span class="date">Jan. 15, 2025</span><span><a href="https://sites.psu.edu/keepingitbrief/2025/01/15/co-counsel-and-other-generative-ai-updates-to-westlaw/">CoCounsel and Other Generative AI Updates to Westlaw</a></span></li>
+          <li><span class="date">Nov. 11, 2024</span><span><a href="https://sites.psu.edu/keepingitbrief/2024/11/11/study-aids-3/">Study Aids</a></span></li>
+          <li><span class="date">Oct. 2, 2024</span><span><a href="https://sites.psu.edu/keepingitbrief/2024/10/02/new-supreme-court-term/">New Supreme Court Term</a></span></li>
+          <li><span class="date">Sept. 5, 2024</span><span><a href="https://sites.psu.edu/keepingitbrief/2024/09/05/welcome-new-and-returning-students/">Welcome New and Returning Students!</a></span></li>
+          <li><span class="date">Nov. 29, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/11/29/8250/">Legal News Resources</a></span></li>
+          <li><span class="date">Sept. 26, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/09/26/8136/">New Supreme Court Term</a></span></li>
+          <li><span class="date">Sept. 13, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/09/13/constitution-day-is-next-week/">Constitution Day is Next Week: The National Constitution Center</a></span></li>
+          <li><span class="date">Aug. 15, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/08/15/library-101/">Library 101</a></span></li>
+          <li><span class="date">May 12, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/05/12/summer-post-graduation-access-to-lexis-bloomberg-law-and-westlaw/">Summer/Post-Graduation Access to Lexis, Bloomberg Law, and Westlaw</a></span></li>
+          <li><span class="date">Apr. 18, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/04/18/legal-news-resources/">Legal News Resources</a></span></li>
+          <li><span class="date">Mar. 27, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/03/27/social-justice-and-diversity-collection-in-the-lexisnexis-digital-library/">Social Justice and Diversity Collection in the LexisNexis Digital Library</a></span></li>
+          <li><span class="date">Feb. 8, 2023</span><span><a href="https://sites.psu.edu/keepingitbrief/2023/02/08/introducing-westlaw-precision/">Introducing Westlaw Precision</a></span></li>
+          <li><span class="date">Oct. 26, 2022</span><span><a href="https://sites.psu.edu/keepingitbrief/2022/10/26/study-aids-2/">Study Aids</a></span></li>
+          <li><span class="date">Sept. 12, 2022</span><span><a href="https://sites.psu.edu/keepingitbrief/2022/09/12/constitution-day-and-reproductive-rights/">Constitution Day and Reproductive Rights</a></span></li>
+        </ul>
+      </div>
+    </details>
+        <details class="acc" id="acc-litsis">
+      <summary>
+        <span class="acc-title">LIT-SIS Blog</span>
+        <span class="acc-sub">2 posts for the blog of AALL&rsquo;s Legal Innovation and Technology Special Interest Section, 2021 and 2022</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="posts">
+          <li><span class="date">Mar. 15, 2022</span><span><a href="https://cssis.classcaster.net/2022/03/15/failure-to-disrupt-why-technology-alone-cant-transform-education/">Failure to Disrupt: Why Technology Alone Can&rsquo;t Transform Education</a></span></li>
+          <li><span class="date">Dec. 15, 2021</span><span><a href="https://cssis.classcaster.net/2021/12/15/the-accessibility-and-usability-resource-site-aurs/">The Accessibility and Usability Resource Site (AURS)</a></span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-allsis">
+      <summary>
+        <span class="acc-title">ALL-SIS Newsletter</span>
+        <span class="acc-sub">15 columns, book reviews, and program reviews, Fall 2021 to Fall 2025</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2025/12/allsis-v45-i1.pdf">Resistance is NOT Futile: Strategies for Integrating a Critical AI Perspective in Libraries</a> <span class="detail">Program review, 2025 AALL Annual Meeting; Vol. 45, No. 1</span></span><span class="when">Fall 2025</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2025/07/allsis-v44-i3.pdf">Book Review: <i>The Opposite of Cheating</i>, by Tricia Bertram Gallant and David A. Rettinger</a> <span class="detail">Vol. 44, No. 3</span></span><span class="when">Summer 2025</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2025/05/allsis-v44-i1.pdf">Free PACER, Free the Law: The Past, Present, and Future of Public Access to Court Electronic Records</a> <span class="detail">Program review; Vol. 44, No. 1</span></span><span class="when">Fall 2024</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2024/07/allsis-v43-i4.pdf">Book Review: <i>Teaching with AI: A Practical Guide to a New Era of Human Learning</i></a> <span class="detail">Third column in a series reviewing books on higher education; Vol. 43, No. 4</span></span><span class="when">Summer 2024</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2024/03/allsis-v43-i3.pdf">Book Review: <i>What Universities Owe Democracy</i></a> <span class="detail">Second column in a series reviewing books on higher education; Vol. 43, No. 3</span></span><span class="when">Spring 2024</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2024/01/allsis-v43-i2.pdf">Book Review: <i>The Abundant University</i></a> <span class="detail">First column in a series reviewing books on higher education; Vol. 43, No. 2</span></span><span class="when">Winter 2024</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2023/10/allsis-v43-i1.pdf">Words Matter: Incorporation of &lsquo;Wise&rsquo; Techniques in Critical Feedback for Better Learning Outcomes in Legal Research Curriculum</a> <span class="detail">Program review; Vol. 43, No. 1</span></span><span class="when">Fall 2023</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2023/03/allsis-v42-i3.pdf">Best Practices for One-Shot Guest Lectures</a> <span class="detail">Feature article; Vol. 42, No. 3</span></span><span class="when">Spring 2023</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2022/10/allsis-v42-i1.pdf">Using Open Educational Resources to Make the Law and Law School More Accessible and Affordable</a> <span class="detail">Program review; Vol. 42, No. 1</span></span><span class="when">Fall 2022</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2022/10/allsis-v42-i1.pdf">Are We Doing Ourselves a Disservice? Reconceptualizing Service, Value, and the Professional Nature of the Modern Law Librarian</a> <span class="detail">Program review; Vol. 42, No. 1</span></span><span class="when">Fall 2022</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2022/07/allsis-v41-i4.pdf">Inclusive ADDIE</a> <span class="detail">Fourth column in a series on instructional design; Vol. 41, No. 4</span></span><span class="when">Summer 2022</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2022/03/allsis-v41-i3.pdf">Quality Matters</a> <span class="detail">Third column in a series on instructional design; Vol. 41, No. 3</span></span><span class="when">Spring 2022</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2022/01/allsis-v41-i2.pdf">The USER Model of Instructional Design</a> <span class="detail">Second column in a series on instructional design; Vol. 41, No. 2</span></span><span class="when">Winter 2022</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2021/10/allsis-v41-i1.pdf">Building on What We Have Accomplished During the Pandemic: My Experience with Two Online Certificate Programs</a> <span class="detail">First column in a series on instructional design; Vol. 41, No. 1</span></span><span class="when">Fall 2021</span></li>
+          <li><span class="what"><a href="https://www.aallnet.org/allsis/wp-content/uploads/sites/4/2021/10/allsis-v41-i1.pdf">How Persistent Identifiers Can Change the Impact Landscape for Legal Scholarship</a> <span class="detail">Program review; Vol. 41, No. 1</span></span><span class="when">Fall 2021</span></li>
+        </ul>
+      </div>
+    </details>
+    </div>
+  </section>
+</main>
+
+<footer class="band" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <span class="email" id="email" data-u="eksejdetmj" data-d="moc.liamg"></span><noscript><span class="email">jmtedjeske [at] gmail [dot] com</span></noscript>
+      <button class="copy" id="copy-email" type="button">Copy email address</button>
+    </div>
+    <ul class="profiles" aria-label="Profiles">
+      <li><a href="https://dickinsonlaw.psu.edu/directory/julie-tedjeske-crane">Dickinson Law profile</a></li>
+      <li><a href="https://www.linkedin.com/in/julie-tedjeske-crane-65117813/">LinkedIn</a></li>
+      <li><a href="https://ripslawlibrarian.wordpress.com/author/julietedjeskecrane/">RIPS Law Librarian Blog posts</a></li>
+    </ul>
+    <p class="disclaimer">This site is Julie Tedjeske Crane&rsquo;s personal project. It is not an official publication of Penn State Dickinson Law, and the views expressed on this site are Julie&rsquo;s own. The teaching materials on this site are for educational use. The materials do not provide legal advice, and instructors should adapt the materials to their own institutions&rsquo; policies. Teaching materials &copy; 2026 Julie Tedjeske Crane, licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var em = document.getElementById('email');
+  if (em && em.dataset.u) {
+    em.textContent = em.dataset.u.split('').reverse().join('') + '\u0040' + em.dataset.d.split('').reverse().join('');
+  }
+  function wireCopy(btnId, srcId, label) {
+    var btn = document.getElementById(btnId), src = document.getElementById(srcId);
+    if (!btn || !src) return;
+    btn.addEventListener('click', function () {
+      var text = src.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(src);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected: press Ctrl+C';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectIt);
+      } else { selectIt(); }
+      setTimeout(function () { btn.textContent = label; }, 2500);
+    });
+  }
+  wireCopy('copy-email', 'email', 'Copy email address');
+  wireCopy('copy-cite', 'cite', 'Copy citation');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About Julie Tedjeske Crane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+/* Layout: teal header band with name, one-line tagline, and anchor nav; one reading column of sections; long lists sit in accordions; teal footer with contact, profile links, and disclaimer. */
+:root {
+  --bg: #F7F8F9;
+  --surface: #EEF0F2;
+  --band: #1F5F63;
+  --on-band: #F7F8F9;
+  --on-band-muted: #C9DADB;
+  --text: #000000;
+  --heading: #1F5F63;
+  --link: #1B2A41;
+  --muted: #5E6873;
+  --accent: #E8A598;
+  --on-accent: #1B2A41;
+  --rule: #D9DDE1;
+
+  --font-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+    --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+    --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+  --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+  --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-feature-settings: "lnum";
+  font-variant-numeric: lining-nums;
+  color: var(--heading);
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.2;
+}
+p { margin: 0; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 24px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } body { font-size: 17px; } }
+
+/* Header band */
+.band { background: var(--band); color: var(--on-band); }
+.masthead { padding-block: 52px 32px; display: grid; gap: 10px; }
+.masthead h1 { color: var(--on-band); font-size: clamp(2.1rem, 5.5vw, 3.2rem); letter-spacing: 0.005em; }
+.masthead .tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--accent); }
+.masthead .role { font-size: 1.05rem; color: var(--on-band-muted); }
+nav.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--band);
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+nav.site ul {
+  list-style: none; margin: 0; padding-block: 0;
+  display: flex; gap: 4px 24px; overflow-x: auto; scrollbar-width: none;
+}
+nav.site ul::-webkit-scrollbar { display: none; }
+nav.site a {
+  display: block; padding-block: 12px 10px; white-space: nowrap;
+  color: var(--on-band); text-decoration: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.875rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+}
+nav.site a:hover, nav.site a.active { border-bottom-color: var(--accent); }
+
+/* Sections */
+main { padding-block: 16px 64px; }
+section { padding-block: 44px 8px; scroll-margin-top: 60px; display: grid; gap: 22px; }
+section > h2 { font-size: 1.75rem; padding-bottom: 10px; position: relative; }
+section > h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--accent); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.prose { max-width: 65ch; display: grid; gap: 16px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; align-items: start; }
+@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border-radius: 6px; padding: 20px; display: grid; gap: 14px; }
+.monogram {
+  aspect-ratio: 1 / 1; max-width: 100%; border-radius: 4px;
+  background: var(--accent); color: var(--on-accent);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 3rem; letter-spacing: 0.04em;
+}
+.facts { display: grid; gap: 10px; margin: 0; }
+.facts dt { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+.subsection { display: grid; gap: 16px; padding-top: 12px; }
+
+/* Dated lists */
+.dated { list-style: none; margin: 0; padding: 0; display: grid; }
+.dated li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.dated li:last-child { border-bottom: 1px solid var(--rule); }
+.dated .when { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.dated .what { min-width: 0; }
+.dated .what .detail { display: block; color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 560px) {
+  .dated li { grid-template-columns: minmax(0, 1fr); }
+  .dated .when { text-align: left; }
+}
+.group { display: grid; gap: 12px; }
+.subgroup { display: grid; gap: 8px; padding-top: 6px; }
+
+/* Citations */
+.cites { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 70ch; }
+.cites li { padding-left: 1.5em; text-indent: -1.5em; }
+.smallcaps { font-variant: small-caps; letter-spacing: 0.02em; }
+.tag { display: inline-block; text-indent: 0; font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 1px 7px; border-radius: 3px; vertical-align: 2px; margin-left: 6px; }
+
+/* Accordions */
+details.acc { border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); max-width: 100%; }
+details.acc > summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: center;
+}
+details.acc > summary::-webkit-details-marker { display: none; }
+details.acc > summary .acc-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); line-height: 1.25; }
+details.acc > summary .acc-sub { grid-column: 1; color: var(--muted); font-size: 0.92rem; }
+details.acc > summary .chev {
+  grid-column: 2; grid-row: 1 / span 2;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 5px 10px; white-space: nowrap;
+}
+details.acc > summary .chev::after { content: "Show all"; }
+details.acc[open] > summary .chev::after { content: "Hide"; }
+details.acc > summary:hover .acc-title { text-decoration: underline; text-underline-offset: 0.15em; }
+details.acc .acc-body { padding: 0 20px 16px; }
+.accs { display: grid; gap: 14px; }
+
+/* Blog list */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 72ch; }
+.posts li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; }
+.posts .date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+@media (max-width: 560px) { .posts li { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* Experience */
+.jobs { display: grid; gap: 26px; max-width: 70ch; }
+.job { display: grid; gap: 6px; }
+.job .meta { color: var(--muted); font-size: 0.95rem; }
+
+/* Hero lead and buttons */
+.masthead .lead { color: var(--on-band); font-size: 1.1rem; max-width: 62ch; padding-top: 10px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 12px; }
+.btn {
+  display: inline-block; text-decoration: none; border-radius: 4px; padding: 9px 16px;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em;
+}
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.ghost { color: var(--on-band); border: 1px solid rgba(255,255,255,0.45); }
+.btn:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+
+/* Teaching materials */
+.mat-groups { display: grid; gap: 28px; }
+.mats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+.mats li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.mats .mat-type { font-family: var(--font-display); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mats .mat-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+.mats p { font-size: 0.95rem; line-height: 1.5; }
+.howto { max-width: 65ch; display: grid; gap: 12px; }
+.tag.soon { margin-left: 0; margin-right: 8px; background: var(--surface); color: var(--muted); border: 1px solid var(--rule); justify-self: start; }
+.mats .tag.soon { background: var(--bg); }
+.status-note { font-size: 0.95rem; }
+.roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; max-width: 760px; }
+.roles li { border-top: 3px solid var(--accent); background: var(--surface); border-radius: 0 0 6px 6px; padding: 14px 16px; display: grid; gap: 2px; }
+.roles .role-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); }
+.roles .role-second { font-size: 0.9rem; color: var(--muted); }
+.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.license { border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 6px 6px 0; padding: 18px 20px; display: grid; gap: 12px; max-width: 72ch; }
+.cite-box { display: grid; gap: 8px; }
+.cite-text { font-size: 0.95rem; background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; user-select: all; }
+.cite-box button.copy { justify-self: start; }
+
+/* Jump links */
+.jump { list-style: none; margin: 0; padding: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.jump a { color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; }
+.jump a:hover { color: var(--heading); border-bottom-color: var(--accent); }
+.masthead.compact { padding-block: 32px 22px; }
+.site-name { margin: 0; }
+.site-name a { color: var(--on-band); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.2; }
+
+/* Boxes (assignments, weeks) */
+.boxes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 14px; }
+.boxes > li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.box-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.box-label { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.box-title { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; line-height: 1.3; color: var(--heading); margin: 0; }
+.boxes p { font-size: 0.95rem; line-height: 1.5; }
+.weight { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 2px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.acc-body .subgroup:first-child { padding-top: 0; }
+.about.solo { grid-template-columns: minmax(0, 1fr); }
+.portrait { display: block; width: 100%; max-width: 220px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; justify-self: center; border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.card .more { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
+.intro-grid { align-items: start; }
+.intro-left { display: grid; gap: 28px; min-width: 0; }
+.mindset { display: flex; align-items: center; gap: 16px; background: var(--surface); color: var(--text); border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 16px 20px; max-width: 760px; }
+.mindset-icon { flex: 0 0 auto; width: 40px; height: 40px; color: var(--heading); }
+.mindset-label { font-family: var(--font-display); color: var(--heading); font-weight: 700; }
+.mindset p { font-family: var(--font-body); font-weight: 400; font-size: clamp(1.05rem, 2.2vw, 1.2rem); line-height: 1.45; margin: 0; }
+.wrap.hero-grid { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 36px; align-items: center; }
+.hero-text { display: grid; gap: 10px; min-width: 0; }
+.hero-art { margin: 0; min-width: 0; }
+.hero-art img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,0.28); }
+@media (max-width: 900px) { .wrap.hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+p.prose { display: block; }
+.box-title { text-transform: none; letter-spacing: 0; }
+.boxes.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 640px) { .boxes.two { grid-template-columns: minmax(0, 1fr); } }
+.weeklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.weeklist > li { background: var(--surface); border-radius: 6px; padding: 14px 18px; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 4px 18px; align-items: start; }
+.weeklist .wk { font-family: var(--font-display); font-weight: 700; color: var(--heading); line-height: 1.3; }
+.weeklist .wk span { display: block; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.weeklist .wk-body { display: grid; gap: 4px; min-width: 0; }
+.weeklist p { font-size: 0.95rem; line-height: 1.5; }
+@media (max-width: 560px) { .weeklist > li { grid-template-columns: minmax(0, 1fr); } }
+.acc-body .cites { padding-top: 4px; }
+
+/* Footer */
+footer.band { padding-block: 44px; }
+footer .wrap { display: grid; gap: 18px; }
+footer h2 { color: var(--on-band); font-size: 1.5rem; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-size: 1.1rem; user-select: all; color: var(--on-band); }
+button.copy {
+  font: inherit; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em;
+  background: var(--accent); color: var(--on-accent); border: 0; border-radius: 4px; padding: 7px 14px; cursor: pointer;
+}
+.profiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+footer a { color: var(--on-band); }
+.disclaimer { color: var(--on-band-muted); font-size: 0.9rem; max-width: 70ch; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 16px; }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap masthead hero-grid">
+    <div class="hero-text">
+      <h1>Julie Tedjeske Crane</h1>
+      <p class="tagline">Law librarian. Legal research professor.</p>
+      <p class="lead">Julie shares the materials from her course AI and Legal Research on this site so that law librarians and legal educators can adapt the materials for their own teaching. The materials are free to use for noncommercial educational purposes under a Creative Commons license.</p>
+      <div class="btns">
+        <a class="btn primary" href="index.html#materials">See the AI and Legal Research course</a>
+        <a class="btn ghost" href="index.html#license">License and reuse</a>
+      </div>
+    </div>
+    <figure class="hero-art">
+      <img src="librarian-instructor-life.jpg" width="1408" height="768" alt="Hand-drawn, colored illustration of an open notebook titled Librarian and Instructor Life. Arrows lead from the title to labeled sketches of Julie&rsquo;s work: Instructional Design, AI in Education, In the Classroom, My Scholarship, Blogging, Conference Presentations, University Library System, and Law School Librarian. The sketches show a syllabus, students in a classroom, books, a speaker at a podium, and two library buildings.">
+    </figure>
+  </div>
+  <nav class="site" aria-label="Pages">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">AI Course</a></li>
+        <li><a href="about.html" class="active" aria-current="page">About</a></li>
+        <li><a href="writing.html">Presentations &amp; Writing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <ul class="jump" aria-label="On this page">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#service">Service</a></li>
+  </ul>
+
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="about solo">
+      <div class="prose">
+        <p>Julie Tedjeske Crane is a reference librarian and Professor of Legal Research at the H. Laddie Montague Jr. Law Library at Penn State Dickinson Law. She teaches first-year and upper-level legal research courses, and she manages the library&rsquo;s LibGuides, which serve as most of the library&rsquo;s website.</p>
+        <p>Julie practiced civil litigation from 2000 to 2017 at Reed Smith, Duane Morris, and Blank Rome, with an emphasis in construction law. She returned to librarianship in 2017, and she has worked in academic law libraries since then.</p>
+        <p>Julie&rsquo;s scholarship examines how law teachers can design legal research courses, assignments, and grading so that students learn to evaluate sources, including output from generative AI tools. Her recent work addresses grading legal research and sustainable work practices for librarians.</p>
+        <p>Julie serves as Vice-Chair/Chair-Elect of the Research Instruction and Patron Services Special Interest Section (RIPS-SIS) of the American Association of Law Libraries (AALL), and she serves on the <i>AALL Spectrum</i> Editorial Board.</p>
+        <p><strong>This site is Julie&rsquo;s personal project. It is not an official publication of Penn State Dickinson Law.</strong></p>
+      </div>
+    </div>
+
+    <div class="accs">
+    <details class="acc" id="education">
+      <summary>
+        <span class="acc-title">Education</span>
+        <span class="acc-sub">J.D., M.S. in Information Science, M.L.S., and B.A., all from the University of Pittsburgh</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+      <p class="muted small">Julie earned all four degrees at the University of Pittsburgh.</p>
+      <ul class="dated">
+        <li><span class="what">J.D. <span class="detail">Managing Editor and published member of the Law Review; elected to the National Order of Barristers; Best Brief Award in the school&rsquo;s appellate moot court competition; first-place team, Northeastern Regional AIPLA Intellectual Property Moot Court</span></span><span class="when">2000</span></li>
+        <li><span class="what">M.S. in Information Science</span><span class="when">2000</span></li>
+        <li><span class="what">Master of Library Science <span class="detail">Beta Phi Mu International Honor Society</span></span><span class="when">1993</span></li>
+        <li><span class="what">B.A. in Sociology, <i>magna cum laude</i> <span class="detail">Social Sciences Divisional Scholar in Sociology; completed the degree in three years</span></span><span class="when">1990</span></li>
+      </ul>
+      </div>
+    </details>
+    <details class="acc" id="experience">
+      <summary>
+        <span class="acc-title">Experience</span>
+        <span class="acc-sub">Academic law librarian since 2017; civil litigator from 2000 to 2017</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+      <div class="jobs">
+        <div class="job">
+          <h4>Law Librarian and Professor of Legal Research</h4>
+          <p class="meta">Penn State Dickinson Law &middot; July 2022 to present</p>
+          <p>Julie teaches first-year and upper-level legal research courses, and she gives guest lectures on request. She provides ready-reference and in-depth research services. Since 2025, she has managed the library&rsquo;s LibGuides, which serve as most of the library&rsquo;s website, and she writes posts for <a href="https://sites.psu.edu/keepingitbrief/">Keeping It Brief</a>, the library&rsquo;s blog. From 2022 to 2025, she managed the law school&rsquo;s Digital Commons repository and the faculty&rsquo;s Selected Works profiles.</p>
+        </div>
+        <div class="job">
+          <h4>Faculty Scholarship and Educational Technology Librarian</h4>
+          <p class="meta">Chicago-Kent College of Law &middot; July 2021 to June 2022</p>
+          <p>Julie supervised three full-time faculty support specialists. She managed the law school&rsquo;s Digital Commons repository, the faculty&rsquo;s Selected Works profiles, and the faculty&rsquo;s SSRN postings, and she worked with student editors to maintain the school&rsquo;s journals in Digital Commons. She also taught training sessions on Clio, Microsoft Word, and other tools.</p>
+        </div>
+        <div class="job">
+          <h4>Electronic Resources and Instructional Services Librarian</h4>
+          <p class="meta">Duquesne University &middot; February 2017 to June 2021</p>
+          <p>Julie built a new WordPress website for the Allegheny County Law Library, which had previously been part of the law school&rsquo;s website. She administered the library&rsquo;s Springshare platforms (LibGuides, LibAnswers, and LibCal), and she wrote nearly all of the library&rsquo;s research guides, blog posts, and FAQ entries. She also built a system, first in Qualtrics and later in LibAnswers, that tracked reference transactions and librarian presentations.</p>
+        </div>
+        <div class="job">
+          <h4>Litigation Attorney</h4>
+          <p class="meta">Blank Rome LLP, 2015&ndash;2017 &middot; Duane Morris LLP, 2004&ndash;2015 &middot; Reed Smith LLP, 2000&ndash;2004</p>
+          <p>Julie represented clients in general business and civil litigation in federal and state courts, with an emphasis in construction law. She managed electronic discovery, conducted legal research, drafted pleadings, motions, briefs, and discovery requests, and argued motions. She also handled extensive pro bono work.</p>
+        </div>
+        <div class="job">
+          <h4>Earlier Library Positions</h4>
+          <p class="meta">University of Pittsburgh, 1995&ndash;1997 &middot; La Roche College, 1993&ndash;1994</p>
+          <p>As a Reference and Technical Services Librarian at the University of Pittsburgh, Julie cataloged the collection of the Western Psychiatric Institute and Clinic&rsquo;s library, and she provided research help to faculty, staff, and students. As the Technical Services Librarian at La Roche College, she cataloged the library&rsquo;s collection and supervised library operations on weekends and one evening each week.</p>
+        </div>
+      </div>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <section id="teaching" aria-labelledby="teaching-h">
+    <h2 id="teaching-h">Teaching</h2>
+    <p class="prose">Julie teaches credit-bearing legal research courses for law students. At Duquesne University, she also taught paralegal students, pre-law students, and exchange students in a J.D. course.</p>
+    <div class="accs">
+    <details class="acc" id="acc-teach-psu">
+      <summary>
+        <span class="acc-title">Penn State Dickinson Law</span>
+        <span class="acc-sub">5 courses since 2022, including AI and Legal Research</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what"><a href="index.html">AI and Legal Research</a> <span class="detail">1 credit</span></span><span class="when">Fall 2026</span></li>
+          <li><span class="what">Legal Research <span class="detail">2 credits</span></span><span class="when">Spring 2026</span></li>
+          <li><span class="what">Legal Research for Civil Litigation <span class="detail">1 credit</span></span><span class="when">Spring 2023, Fall 2024, Fall 2025</span></li>
+          <li><span class="what">Legal Research I <span class="detail">1 credit; every fall semester</span></span><span class="when">2022&ndash;2024</span></li>
+          <li><span class="what">Legal Research II <span class="detail">1 credit; every spring semester</span></span><span class="when">2023&ndash;2025</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-teach-duq">
+      <summary>
+        <span class="acc-title">Duquesne University</span>
+        <span class="acc-sub">5 courses from 2017 to 2021, for law, paralegal, and pre-law students</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Research for Law Practice <span class="detail">1 credit; co-taught; every semester</span></span><span class="when">Fall 2017&ndash;Spring 2021</span></li>
+          <li><span class="what">Legal Research and Writing <span class="detail">Pre-law program; co-taught</span></span><span class="when">Spring 2020, Spring 2021</span></li>
+          <li><span class="what">Civil Litigation I <span class="detail">Paralegal program</span></span><span class="when">Summer 2020</span></li>
+          <li><span class="what">Advanced Legal Research <span class="detail">Paralegal program</span></span><span class="when">Spring 2020</span></li>
+          <li><span class="what">Introduction to the American Legal System <span class="detail">J.D. course for exchange students; co-taught</span></span><span class="when">Fall 2019</span></li>
+        </ul>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <section id="service" aria-labelledby="service-h">
+    <h2 id="service-h">Service</h2>
+    <div class="accs">
+    <details class="acc" id="acc-aall">
+      <summary>
+        <span class="acc-title">American Association of Law Libraries</span>
+        <span class="acc-sub"><i>AALL Spectrum</i> Editorial Board; Vice-Chair/Chair-Elect of RIPS-SIS; 8 roles since 2021</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Editorial Board Member <span class="detail"><i>AALL Spectrum</i></span></span><span class="when">2026&ndash;present</span></li>
+          <li><span class="what">Vice-Chair/Chair-Elect <span class="detail">Research Instruction and Patron Services Special Interest Section</span></span><span class="when">2026&ndash;present</span></li>
+          <li><span class="what">Chair, Program Committee <span class="detail">Research Instruction and Patron Services Special Interest Section; also a member, 2023&ndash;2024</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">Editor and Contributor <span class="detail">RIPS Law Librarian Blog, Research Instruction and Patron Services Special Interest Section; editor 2023&ndash;2024, contributor 2021&ndash;2023 and 2024&ndash;2025</span></span><span class="when">2021&ndash;2025</span></li>
+          <li><span class="what">Committee Member, Annual Meeting Program Committee <span class="detail">Teaching + Training Content Area Team; also served 2024&ndash;2025</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">Committee Member, Education Committee <span class="detail">Academic Law Libraries Special Interest Section</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">Member-at-Large, Board Member (elected) <span class="detail">Legal Innovation and Technology Special Interest Section</span></span><span class="when">2024&ndash;2026</span></li>
+          <li><span class="what">Advisory Board Member and Columnist <span class="detail">ALL-SIS Newsletter, Academic Law Libraries Special Interest Section</span></span><span class="when">2021&ndash;2025</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-psu">
+      <summary>
+        <span class="acc-title">Penn State</span>
+        <span class="acc-sub">Penn State Dickinson Law and Penn State University Libraries; 8 roles since 2023</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Honor Code Committee <span class="detail">Penn State Dickinson Law; second term</span></span><span class="when">2025&ndash;2027</span></li>
+          <li><span class="what">AI Preparation and Planning Committee <span class="detail">Penn State Dickinson Law</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">LFO Research Committee <span class="detail">Penn State University Libraries</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">Strategic Planning Action Group: Building AI Literacy Across the Organization <span class="detail">Penn State University Libraries</span></span><span class="when">2026&ndash;2027</span></li>
+          <li><span class="what">NextGen Bar Exam Preparation and Planning Committee <span class="detail">Penn State Dickinson Law</span></span><span class="when">2025&ndash;2026</span></li>
+          <li><span class="what">LFO Curricular and Instructional Affairs Committee <span class="detail">Penn State University Libraries</span></span><span class="when">2024&ndash;2025</span></li>
+          <li><span class="what">Task Force on Artificial Intelligence <span class="detail">Penn State University Libraries</span></span><span class="when">2024</span></li>
+          <li><span class="what">Search Committee, Copyright Officer and Head of the Office of Scholarly Communications and Copyright <span class="detail">Penn State</span></span><span class="when">2023</span></li>
+        </ul>
+      </div>
+    </details>
+    <details class="acc" id="acc-duq">
+      <summary>
+        <span class="acc-title">Duquesne University</span>
+        <span class="acc-sub">Faculty Senate, 2018 to 2020</span>
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="dated">
+          <li><span class="what">Faculty Senate Representative for Law Librarian Faculty <span class="detail">Duquesne University</span></span><span class="when">2018&ndash;2020</span></li>
+        </ul>
+      </div>
+    </details>
+    </div>
+  </section>
+</main>
+
+<footer class="band" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <span class="email" id="email" data-u="eksejdetmj" data-d="moc.liamg"></span><noscript><span class="email">jmtedjeske [at] gmail [dot] com</span></noscript>
+      <button class="copy" id="copy-email" type="button">Copy email address</button>
+    </div>
+    <ul class="profiles" aria-label="Profiles">
+      <li><a href="https://dickinsonlaw.psu.edu/directory/julie-tedjeske-crane">Dickinson Law profile</a></li>
+      <li><a href="https://www.linkedin.com/in/julie-tedjeske-crane-65117813/">LinkedIn</a></li>
+      <li><a href="https://ripslawlibrarian.wordpress.com/author/julietedjeskecrane/">RIPS Law Librarian Blog posts</a></li>
+    </ul>
+    <p class="disclaimer">This site is Julie Tedjeske Crane&rsquo;s personal project. It is not an official publication of Penn State Dickinson Law, and the views expressed on this site are Julie&rsquo;s own. The teaching materials on this site are for educational use. The materials do not provide legal advice, and instructors should adapt the materials to their own institutions&rsquo; policies. Teaching materials &copy; 2026 Julie Tedjeske Crane, licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var em = document.getElementById('email');
+  if (em && em.dataset.u) {
+    em.textContent = em.dataset.u.split('').reverse().join('') + '\u0040' + em.dataset.d.split('').reverse().join('');
+  }
+  function wireCopy(btnId, srcId, label) {
+    var btn = document.getElementById(btnId), src = document.getElementById(srcId);
+    if (!btn || !src) return;
+    btn.addEventListener('click', function () {
+      var text = src.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(src);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected: press Ctrl+C';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectIt);
+      } else { selectIt(); }
+      setTimeout(function () { btn.textContent = label; }, 2500);
+    });
+  }
+  wireCopy('copy-email', 'email', 'Copy email address');
+  wireCopy('copy-cite', 'cite', 'Copy citation');
+})();
+</script>
+</body>
+</html>
