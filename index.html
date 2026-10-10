@@ -244,6 +244,8 @@ p.prose { display: block; }
 .weeklist .wk { font-family: var(--font-display); font-weight: 700; color: var(--heading); line-height: 1.3; }
 .weeklist .wk span { display: block; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
 .weeklist .wk-body { display: grid; gap: 4px; min-width: 0; }
+.wk-mats { font-size: 0.92rem; }
+.wk-mats span { font-family: var(--font-display); font-weight: 700; color: var(--heading); }
 .weeklist p { font-size: 0.95rem; line-height: 1.5; }
 @media (max-width: 560px) { .weeklist > li { grid-template-columns: minmax(0, 1fr); } }
 .acc-body .cites { padding-top: 4px; }
@@ -330,8 +332,8 @@ footer a { color: var(--on-band); }
       <h3>Assignments</h3>
       <ul class="boxes two">
         <li><div class="box-top"><h4 class="box-title">Final Capstone Project</h4><span class="weight">45%</span></div><p>Students complete a research project through a step-by-step process that ties back to the in-class exercises.</p></li>
-        <li><div class="box-top"><h4 class="box-title">Weekly AI Updates</h4><span class="weight">20%</span></div><p>Students complete four of five weekly updates on developments in legal AI. Pass/fail.</p></li>
-        <li><div class="box-top"><h4 class="box-title">AI Deep Dive</h4><span class="weight">20%</span></div><p>Each student chooses a book or an online course about AI from Julie&rsquo;s list and studies it in depth. Pass/fail.</p></li>
+        <li><div class="box-top"><h4 class="box-title">Weekly AI Updates</h4><span class="weight">20%</span></div><p>Students complete four of five weekly updates on developments in legal AI. Pass/fail.</p><p class="wk-mats"><a href="materials/weekly-ai-update.html">Read the full assignment</a></p></li>
+        <li><div class="box-top"><h4 class="box-title">AI Deep Dive</h4><span class="weight">20%</span></div><p>Each student completes one of four options: an online course, a book, four episodes of a podcast, or a short paper on AI in legal research. The student then writes 500 to 750 words. Pass/fail.</p><p class="wk-mats"><a href="materials/ai-deep-dive.html">Read the full assignment</a></p></li>
         <li><div class="box-top"><h4 class="box-title">In-Class Work</h4><span class="weight">15%</span></div><p>In-class exercises and the Week 7 certification. Pass/fail.</p></li>
       </ul>
     </div>
@@ -339,7 +341,7 @@ footer a { color: var(--on-band); }
     <div class="group">
       <h3>Weekly Plan</h3>
       <ul class="weeklist">
-        <li><div class="wk">Week 1<span>Oct. 19</span></div><div class="wk-body"><h4 class="box-title">How Generative AI Works, and Prompting for Legal Research</h4><p>Lectures on generative AI, retrieval-augmented generation, and legal prompting. Students draft prompts for a family law fact pattern and test the prompts in CoCounsel, Harvey, Lexis Prot&eacute;g&eacute;, and a general chatbot.</p></div></li>
+        <li><div class="wk">Week 1<span>Oct. 19</span></div><div class="wk-body"><h4 class="box-title">How Generative AI Works, and Prompting for Legal Research</h4><p>Lectures on generative AI, retrieval-augmented generation, and legal prompting. Students draft prompts for a family law fact pattern and test the prompts in CoCounsel, Harvey, Lexis Prot&eacute;g&eacute;, and a general chatbot.</p><p class="wk-mats"><span>Materials:</span> <a href="materials/week-1-introductions.html">Introductions discussion prompt</a></p></div></li>
         <li><div class="wk">Week 2<span>Oct. 26</span></div><div class="wk-body"><h4 class="box-title">Confidentiality, Data Scrubbing, and Professional Responsibility</h4><p>Students remove confidential client information from a document before they prompt an AI tool, and then work through a guided prompting exercise.</p></div></li>
         <li><div class="wk">Week 3<span>Nov. 2</span></div><div class="wk-body"><h4 class="box-title">Hallucinations and Verification</h4><p>Students check a brief by hand against a verification checklist, and then check the same brief with brief-analysis software.</p></div></li>
         <li><div class="wk">Week 4<span>Nov. 9</span></div><div class="wk-body"><h4 class="box-title">AI Compared with Secondary Sources</h4><p>Students compare an AI tool&rsquo;s answer with a secondary source on the same question. Students then apply Mike Caulfield&rsquo;s SIFT method to the empirical claims in a public-policy topic of their choice.</p></div></li>
