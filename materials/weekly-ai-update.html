@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assignments: Weekly AI Update Assignment | AI and Legal Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+/* Layout: teal header band with name, one-line tagline, and anchor nav; one reading column of sections; long lists sit in accordions; teal footer with contact, profile links, and disclaimer. */
+:root {
+  --bg: #F7F8F9;
+  --surface: #EEF0F2;
+  --band: #1F5F63;
+  --on-band: #F7F8F9;
+  --on-band-muted: #C9DADB;
+  --text: #000000;
+  --heading: #1F5F63;
+  --link: #1B2A41;
+  --muted: #5E6873;
+  --accent: #E8A598;
+  --on-accent: #1B2A41;
+  --rule: #D9DDE1;
+
+  --font-display: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+    --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+    --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B2A41; --surface: #22344F; --band: #13202F; --on-band: #EEF0F2; --on-band-muted: #AEB8C2;
+  --text: #EEF0F2; --heading: #E8A598; --link: #F2C2B8; --muted: #AEB8C2;
+  --accent: #E8A598; --on-accent: #1B2A41; --rule: #34465F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-feature-settings: "lnum";
+  font-variant-numeric: lining-nums;
+  color: var(--heading);
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.2;
+}
+p { margin: 0; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 24px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } body { font-size: 17px; } }
+
+/* Header band */
+.band { background: var(--band); color: var(--on-band); }
+.masthead { padding-block: 52px 32px; display: grid; gap: 10px; }
+.masthead h1 { color: var(--on-band); font-size: clamp(2.1rem, 5.5vw, 3.2rem); letter-spacing: 0.005em; }
+.masthead .tagline { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--accent); }
+.masthead .role { font-size: 1.05rem; color: var(--on-band-muted); }
+nav.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--band);
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+nav.site ul {
+  list-style: none; margin: 0; padding-block: 0;
+  display: flex; gap: 4px 24px; overflow-x: auto; scrollbar-width: none;
+}
+nav.site ul::-webkit-scrollbar { display: none; }
+nav.site a {
+  display: block; padding-block: 12px 10px; white-space: nowrap;
+  color: var(--on-band); text-decoration: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.875rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+}
+nav.site a:hover, nav.site a.active { border-bottom-color: var(--accent); }
+
+/* Sections */
+main { padding-block: 16px 64px; }
+section { padding-block: 44px 8px; scroll-margin-top: 60px; display: grid; gap: 22px; }
+section > h2 { font-size: 1.75rem; padding-bottom: 10px; position: relative; }
+section > h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--accent); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.prose { max-width: 65ch; display: grid; gap: 16px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; align-items: start; }
+@media (max-width: 760px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border-radius: 6px; padding: 20px; display: grid; gap: 14px; }
+.monogram {
+  aspect-ratio: 1 / 1; max-width: 100%; border-radius: 4px;
+  background: var(--accent); color: var(--on-accent);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 3rem; letter-spacing: 0.04em;
+}
+.facts { display: grid; gap: 10px; margin: 0; }
+.facts dt { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+.subsection { display: grid; gap: 16px; padding-top: 12px; }
+
+/* Dated lists */
+.dated { list-style: none; margin: 0; padding: 0; display: grid; }
+.dated li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.dated li:last-child { border-bottom: 1px solid var(--rule); }
+.dated .when { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.dated .what { min-width: 0; }
+.dated .what .detail { display: block; color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 560px) {
+  .dated li { grid-template-columns: minmax(0, 1fr); }
+  .dated .when { text-align: left; }
+}
+.group { display: grid; gap: 12px; }
+.subgroup { display: grid; gap: 8px; padding-top: 6px; }
+
+/* Citations */
+.cites { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 70ch; }
+.cites li { padding-left: 1.5em; text-indent: -1.5em; }
+.smallcaps { font-variant: small-caps; letter-spacing: 0.02em; }
+.tag { display: inline-block; text-indent: 0; font-family: var(--font-display); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 1px 7px; border-radius: 3px; vertical-align: 2px; margin-left: 6px; }
+
+/* Accordions */
+details.acc { border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); max-width: 100%; }
+details.acc > summary {
+  list-style: none; cursor: pointer; padding: 16px 20px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: center;
+}
+details.acc > summary::-webkit-details-marker { display: none; }
+details.acc > summary .acc-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); line-height: 1.25; }
+details.acc > summary .acc-sub { grid-column: 1; color: var(--muted); font-size: 0.92rem; }
+details.acc > summary .chev {
+  grid-column: 2; grid-row: 1 / span 2;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 5px 10px; white-space: nowrap;
+}
+details.acc > summary .chev::after { content: "Show all"; }
+details.acc[open] > summary .chev::after { content: "Hide"; }
+details.acc > summary:hover .acc-title { text-decoration: underline; text-underline-offset: 0.15em; }
+details.acc .acc-body { padding: 0 20px 16px; }
+.accs { display: grid; gap: 14px; }
+
+/* Blog list */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 72ch; }
+.posts li { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 16px; }
+.posts .date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+@media (max-width: 560px) { .posts li { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* Experience */
+.jobs { display: grid; gap: 26px; max-width: 70ch; }
+.job { display: grid; gap: 6px; }
+.job .meta { color: var(--muted); font-size: 0.95rem; }
+
+/* Hero lead and buttons */
+.masthead .lead { color: var(--on-band); font-size: 1.1rem; max-width: 62ch; padding-top: 10px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 12px; }
+.btn {
+  display: inline-block; text-decoration: none; border-radius: 4px; padding: 9px 16px;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em;
+}
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.ghost { color: var(--on-band); border: 1px solid rgba(255,255,255,0.45); }
+.btn:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+
+/* Teaching materials */
+.mat-groups { display: grid; gap: 28px; }
+.mats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+.mats li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.mats .mat-type { font-family: var(--font-display); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mats .mat-title { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+.mats p { font-size: 0.95rem; line-height: 1.5; }
+.howto { max-width: 65ch; display: grid; gap: 12px; }
+.tag.soon { margin-left: 0; margin-right: 8px; background: var(--surface); color: var(--muted); border: 1px solid var(--rule); justify-self: start; }
+.mats .tag.soon { background: var(--bg); }
+.status-note { font-size: 0.95rem; }
+.roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; max-width: 760px; }
+.roles li { border-top: 3px solid var(--accent); background: var(--surface); border-radius: 0 0 6px 6px; padding: 14px 16px; display: grid; gap: 2px; }
+.roles .role-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--heading); }
+.roles .role-second { font-size: 0.9rem; color: var(--muted); }
+.eyebrow { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.license { border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 6px 6px 0; padding: 18px 20px; display: grid; gap: 12px; max-width: 72ch; }
+.cite-box { display: grid; gap: 8px; }
+.cite-text { font-size: 0.95rem; background: var(--bg); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 12px; user-select: all; }
+.cite-box button.copy { justify-self: start; }
+
+/* Jump links */
+.jump { list-style: none; margin: 0; padding: 20px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.jump a { color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; }
+.jump a:hover { color: var(--heading); border-bottom-color: var(--accent); }
+.masthead.compact { padding-block: 32px 22px; }
+.site-name { margin: 0; }
+.site-name a { color: var(--on-band); text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.2; }
+
+/* Boxes (assignments, weeks) */
+.boxes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 14px; }
+.boxes > li { background: var(--surface); border-radius: 6px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.box-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.box-label { font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.box-title { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; line-height: 1.3; color: var(--heading); margin: 0; }
+.boxes p { font-size: 0.95rem; line-height: 1.5; }
+.weight { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--on-accent); background: var(--accent); border-radius: 4px; padding: 2px 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.acc-body .subgroup:first-child { padding-top: 0; }
+.about.solo { grid-template-columns: minmax(0, 1fr); }
+.portrait { display: block; width: 100%; max-width: 220px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; justify-self: center; border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+.card .more { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; }
+.intro-grid { align-items: start; }
+.intro-left { display: grid; gap: 28px; min-width: 0; }
+.mindset { display: flex; align-items: center; gap: 16px; background: var(--surface); color: var(--text); border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0; padding: 16px 20px; max-width: 760px; }
+.mindset-icon { flex: 0 0 auto; width: 40px; height: 40px; color: var(--heading); }
+.mindset-label { font-family: var(--font-display); color: var(--heading); font-weight: 700; }
+.mindset p { font-family: var(--font-body); font-weight: 400; font-size: clamp(1.05rem, 2.2vw, 1.2rem); line-height: 1.45; margin: 0; }
+.wrap.hero-grid { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 36px; align-items: center; }
+.hero-text { display: grid; gap: 10px; min-width: 0; }
+.hero-art { margin: 0; min-width: 0; }
+.hero-art img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,0.28); }
+@media (max-width: 900px) { .wrap.hero-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+p.prose { display: block; }
+.box-title { text-transform: none; letter-spacing: 0; }
+.boxes.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 640px) { .boxes.two { grid-template-columns: minmax(0, 1fr); } }
+.weeklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.weeklist > li { background: var(--surface); border-radius: 6px; padding: 14px 18px; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 4px 18px; align-items: start; }
+.weeklist .wk { font-family: var(--font-display); font-weight: 700; color: var(--heading); line-height: 1.3; }
+.weeklist .wk span { display: block; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.weeklist .wk-body { display: grid; gap: 4px; min-width: 0; }
+.wk-mats { font-size: 0.92rem; }
+.wk-mats span { font-family: var(--font-display); font-weight: 700; color: var(--heading); }
+.weeklist p { font-size: 0.95rem; line-height: 1.5; }
+@media (max-width: 560px) { .weeklist > li { grid-template-columns: minmax(0, 1fr); } }
+.acc-body .cites { padding-top: 4px; }
+
+/* Footer */
+footer.band { padding-block: 44px; }
+footer .wrap { display: grid; gap: 18px; }
+footer h2 { color: var(--on-band); font-size: 1.5rem; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-size: 1.1rem; user-select: all; color: var(--on-band); }
+button.copy {
+  font: inherit; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em;
+  background: var(--accent); color: var(--on-accent); border: 0; border-radius: 4px; padding: 7px 14px; cursor: pointer;
+}
+.profiles { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+footer a { color: var(--on-band); }
+.disclaimer { color: var(--on-band-muted); font-size: 0.9rem; max-width: 70ch; border-top: 1px solid rgba(255,255,255,0.18); padding-top: 16px; }
+</style>
+<style>
+.crumb { margin: 0; padding-top: 24px; font-size: 0.9rem; color: var(--muted); }
+.mat-intro { max-width: 68ch; }
+.canvas-frame :is(h1, h2, h3, h4, h5, h6) { font-family: inherit; font-weight: bold; color: inherit; line-height: 1.3; letter-spacing: normal; text-transform: none; text-wrap: wrap; font-feature-settings: normal; margin: 0.9em 0 0.4em; }
+.canvas-frame h2 { font-size: 1.5em; } .canvas-frame h3 { font-size: 1.25em; } .canvas-frame h4 { font-size: 1.1em; }
+.canvas-frame p { margin: 0 0 12px; }
+.canvas-frame ul, .canvas-frame ol { padding-left: 1.6em; margin: 0 0 12px; }
+.canvas-frame table { border-collapse: collapse; }
+.canvas-frame { background: #ffffff; color: #222222; color-scheme: light; border: 1px solid var(--rule); border-radius: 6px; padding: 22px; max-width: 860px; overflow-x: auto; }
+.reuse { display: grid; gap: 12px; max-width: 860px; }
+.reuse-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.reuse textarea { width: 100%; min-height: 260px; font: 0.85rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text); background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 10px; }
+details.code summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; color: var(--heading); }
+details.code[open] summary { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap masthead compact">
+    <p class="site-name"><a href="../index.html">Julie Tedjeske Crane</a></p>
+  </div>
+  <nav class="site" aria-label="Pages">
+    <div class="wrap">
+      <ul>
+        <li><a href="../index.html" class="active">AI Course</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../writing.html">Presentations &amp; Writing</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <p class="crumb"><a href="../index.html#materials">AI and Legal Research</a> &rsaquo; Assignments</p>
+  <section aria-labelledby="mat-h">
+    <h2 id="mat-h">Weekly AI Update Assignment</h2>
+    <p class="mat-intro">Each week, students read or listen to one current item about AI, post a summary and reaction of 200 to 400 words, and discuss the items at the start of the next class. The page below shows [date], [time], and [day] wherever a deadline or class day belongs.</p>
+    <div class="canvas-frame">
+<div style="font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #222222;">
+    <div style="background-color: #001e44; color: #ffffff; padding: 16px 20px; margin-bottom: 20px;">
+        <p style="margin: 0; color: #9cc7ec;">Weekly AI Updates (pass/fail) &middot; Discussion post</p>
+        <h2 style="margin: 4px 0 0 0; color: #ffffff;">Weekly AI Update</h2>
+    </div>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Key Takeaways</h2>
+    <div style="background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin-bottom: 16px;">
+        <ul style="margin-top: 6px;">
+            <li style="margin-bottom: 6px;">Post by <strong>[time]</strong> on <strong>[date].</strong></li>
+            <li style="margin-bottom: 6px;">Write 200 to 400 words.</li>
+            <li style="margin-bottom: 6px;">Complete four of the five weekly updates (Due Weeks 2 through 6).</li>
+            <li style="margin-bottom: 6px;">Each update is graded pass/fail and is worth 5% of your course grade.</li>
+            <li style="margin-bottom: 6px;">Be ready to summarize your item briefly in class, because I usually call on four students each week.</li>
+            <li style="margin-bottom: 6px;">You do not have to reply to your classmates&rsquo; posts.</li>
+        </ul>
+    </div>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Purpose</h2>
+    <p>Practicing attorneys keep current on AI by following a few reliable newsletters, blogs, and podcasts. This assignment asks you to build the same habit, so that you keep following AI developments after the course ends. Each week, after you read or listen to one current item about AI, write up a short summary and your personal reaction. The assignment serves the course&rsquo;s learning objective of keeping up with developments in generative AI.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Time Estimate</h2>
+    <p>Each weekly update should take you about an hour: roughly 30 minutes to find and read the item, and 30 minutes to write your post.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Grading</h2>
+    <p>The Weekly AI Updates are pass/fail, and together they are worth 20% of your course grade. Five class sessions, Weeks 2 through 6, each offer an update, and you must complete four of the five. In other words, because only four updates are required, you may miss one week without penalty. Each completed update is worth 5% of your course grade. I record an on-time update that passes at 95% of its value, and a late update that passes at 85% of its value.</p>
+    <p>Each week&rsquo;s credit has two parts: a post on this board and, if it is your week, a brief summary of your item in class. The Weekly AI Updates discussion opens each class, and I usually call on four students during that discussion. If you miss class that week, you may give your summary at the next class you attend.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Deadline</h2>
+    <p>Post your update by <strong>[time] on the [day] before class</strong>. Because the class meets on [day], this deadline gives me time to read every post before class.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Task</h2>
+    <ol style="margin-top: 0;">
+        <li style="margin-bottom: 6px;"><strong>Choose one item.</strong> Choose a news story, blog post, or podcast episode about AI in general, AI in legal work, or AI in legal research. The item must be current, meaning that it was published or released after the previous class. For the Week 2 update, choose an item published after [date]. If you cannot find a current item that interests you, you may use one from the previous week.</li>
+        <li style="margin-bottom: 6px;"><strong>Consider subscribing to one source.</strong> I recommend subscribing to one email newsletter or podcast feed that covers AI in law. A subscription delivers current headlines to you each week, so you do not have to search for an item. The Suggested Sources section below lists options, but you may choose a source that is not on the list. You may also search for an item each week instead of subscribing.</li>
+        <li style="margin-bottom: 6px;"><strong>Write your post.</strong> Your post should run 200 to 400 words and should include the following:
+            <ul style="margin-top: 6px;">
+                <li style="margin-bottom: 6px;">Write a descriptive title, not just Week 1 or something like that.</li>
+                <li style="margin-bottom: 6px;">Use these categories as headings:
+                    <ul style="margin-top: 6px;">
+                        <li style="margin-bottom: 6px;">Title (of the blog post, article, or podcast episode)</li>
+                        <li style="margin-bottom: 6px;">Source</li>
+                        <li style="margin-bottom: 6px;">Date</li>
+                        <li style="margin-bottom: 6px;">Link</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 6px;">Summarize the item&rsquo;s substance.</li>
+                <li style="margin-bottom: 6px;">Give your own reaction.</li>
+            </ul>
+        </li>
+        <li style="margin-bottom: 6px;"><strong>Post in the text box.</strong> Click <strong>Reply</strong> and type your post in the text box. Do not upload a document.</li>
+        <li style="margin-bottom: 6px;"><strong>Prepare to speak briefly in class.</strong> I usually call on four students to discuss their posts. Be ready to tell the class what your item says, why you chose it, and how you feel about it. If the class wants to discuss your item further, we will do so; otherwise, we will move on to the next student.</li>
+    </ol>
+    <p>You may reply to your classmates&rsquo; posts, but you do not have to. Occasionally, two students will choose the same item, which is fine as long as each student&rsquo;s post provides their own summary and reaction.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Using AI to Write Your Post</h2>
+    <p>You may use any AI tool while writing your post, but you must read or listen to the item yourself. Do not paste an AI tool&rsquo;s summary of the item into your post. I suggest a two-step process. First, write a rough draft yourself, preferably in complete sentences, although an outline also works. Then ask an AI tool to help you refine the draft. Your final post must give your own summary of the item and your own reaction to it.</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Suggested Sources</h2>
+    <h3 style="color: #1e407c; margin: 16px 0 6px 0;">Legal news and blogs</h3>
+    <ul style="margin-top: 6px;">
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.geeklawblog.com/">3 Geeks and a Law Blog</a>: a long-running legal technology blog that covers AI along with other topics.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://abovethelaw.com/tag/ai-legal-beat/">Above the Law&rsquo;s AI Legal Beat</a>: articles on AI.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.ailawlibrarians.com/">AI Law Librarians</a>: a blog by law librarians about generative AI, legal research, and legal education.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.artificiallawyer.com/">Artificial Lawyer</a>: legal technology and AI news, with email news alerts.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.bloomberglaw.com/bloomberglawnews/artificial-intelligence">Bloomberg Law News: Artificial Intelligence</a>: Bloomberg Law&rsquo;s AI newsletter.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://thebrainyacts.beehiiv.com/subscribe">The Brainyacts</a>: an email newsletter with AI tips and current developments.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.law360.com/ai">Law360: AI</a>: Law360&rsquo;s AI coverage, with a weekly newsletter.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.lawnext.com/">LawSites</a>: Bob Ambrogi&rsquo;s long-running blog on legal technology, including AI.</li>
+    </ul>
+    <h3 style="color: #1e407c; margin: 16px 0 6px 0;">General AI</h3>
+    <ul style="margin-top: 6px;">
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.normaltech.ai/">AI as Normal Technology</a>: a newsletter by two Princeton computer science professors.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.oneusefulthing.org/">One Useful Thing</a>: Ethan Mollick&rsquo;s newsletter on using AI at work.</li>
+    </ul>
+    <h3 style="color: #1e407c; margin: 16px 0 6px 0;">Podcasts</h3>
+    <ul style="margin-top: 6px;">
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.geeklawblog.com/podcast">The Geek in Review</a>: legal information, innovation, and AI in practice.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.lawnext.com/category/lawnext">LawNext</a>: Bob Ambrogi&rsquo;s interviews with legal technology founders.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.lawnext.com/category/legaltech-week">Legaltech Week</a>: a weekly roundtable on legal technology and AI news.</li>
+        <li style="margin-bottom: 6px;"><a style="color: #2b7abc;" href="https://www.adr.org/podcasts/ai-and-the-future-of-law/">AI and the Future of Law</a>: the American Arbitration Association&rsquo;s podcast with legal industry leaders.</li>
+    </ul>
+    <div style="background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin: 16px 0;">
+        <p><a class="inline_disabled" href="https://rlfordon.github.io/resources/staying-current/" target="_blank" rel="noopener">Additional Sources for Following AI and Law (Collected by Law Librarian Rebecca Fordon)</a></p>
+    </div>
+    <p>&nbsp;</p>
+    <h2 style="color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;">Criteria</h2>
+    <p>Your update passes when it meets all of the following criteria:</p>
+    <ul style="margin-top: 6px;">
+        <li style="margin-bottom: 6px;">The post identifies one item by title, source, and date and includes a working link.</li>
+        <li style="margin-bottom: 6px;">The post has a descriptive title.</li>
+        <li style="margin-bottom: 6px;">The item&rsquo;s topic is AI, and it appeared in the past week (or the week before if no item was available this week).</li>
+        <li style="margin-bottom: 6px;">The post runs 200 to 400 words.</li>
+        <li style="margin-bottom: 6px;">The post summarizes the item&rsquo;s substance and gives your own reaction. The post is not an AI tool&rsquo;s summary pasted into the text box.</li>
+        <li style="margin-bottom: 6px;">The post generally uses complete sentences, correct spelling, and correct grammar. This criterion is a requirement, but I apply it leniently.</li>
+        <li style="margin-bottom: 6px;">You post by [time] on the [day] before class. A post that meets the other criteria but arrives late is recorded at 85%.</li>
+        <li style="margin-bottom: 6px;">If I call on you, you will briefly summarize your item in class. If you miss that class, you give your summary at the next class you attend. This makeup option does not apply to Week 6, because Week 6 is the last class with an updates discussion.</li>
+    </ul>
+    <div style="background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin: 16px 0;">
+        <p style="margin: 0;">I grade the posts for completion: a timely, good-faith post that meets these criteria passes.</p>
+    </div>
+</div>
+    </div>
+    <div class="reuse">
+      <h3>Use This Page in Your Canvas Course</h3>
+      <p class="mat-intro">Click the button to copy the page&rsquo;s Canvas code. In Canvas, open a page or discussion, switch the editor to HTML view, and paste the code. Then replace each [date], [time], and [day] placeholder, and adjust the grading details to fit your course.</p>
+      <div class="reuse-row"><button class="copy" id="copy-canvas" type="button">Copy Canvas code</button></div>
+      <details class="code"><summary>Show the Canvas code</summary>
+        <textarea id="canvas-code" readonly aria-label="Canvas HTML code for this page">&lt;div style=&quot;font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #222222;&quot;&gt;
+    &lt;div style=&quot;background-color: #001e44; color: #ffffff; padding: 16px 20px; margin-bottom: 20px;&quot;&gt;
+        &lt;p style=&quot;margin: 0; color: #9cc7ec;&quot;&gt;Weekly AI Updates (pass/fail) &amp;middot; Discussion post&lt;/p&gt;
+        &lt;h2 style=&quot;margin: 4px 0 0 0; color: #ffffff;&quot;&gt;Weekly AI Update&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Key Takeaways&lt;/h2&gt;
+    &lt;div style=&quot;background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin-bottom: 16px;&quot;&gt;
+        &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Post by &lt;strong&gt;[time]&lt;/strong&gt; on &lt;strong&gt;[date].&lt;/strong&gt;&lt;/li&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Write 200 to 400 words.&lt;/li&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Complete four of the five weekly updates (Due Weeks 2 through 6).&lt;/li&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Each update is graded pass/fail and is worth 5% of your course grade.&lt;/li&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Be ready to summarize your item briefly in class, because I usually call on four students each week.&lt;/li&gt;
+            &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;You do not have to reply to your classmates&amp;rsquo; posts.&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Purpose&lt;/h2&gt;
+    &lt;p&gt;Practicing attorneys keep current on AI by following a few reliable newsletters, blogs, and podcasts. This assignment asks you to build the same habit, so that you keep following AI developments after the course ends. Each week, after you read or listen to one current item about AI, write up a short summary and your personal reaction. The assignment serves the course&amp;rsquo;s learning objective of keeping up with developments in generative AI.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Time Estimate&lt;/h2&gt;
+    &lt;p&gt;Each weekly update should take you about an hour: roughly 30 minutes to find and read the item, and 30 minutes to write your post.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Grading&lt;/h2&gt;
+    &lt;p&gt;The Weekly AI Updates are pass/fail, and together they are worth 20% of your course grade. Five class sessions, Weeks 2 through 6, each offer an update, and you must complete four of the five. In other words, because only four updates are required, you may miss one week without penalty. Each completed update is worth 5% of your course grade. I record an on-time update that passes at 95% of its value, and a late update that passes at 85% of its value.&lt;/p&gt;
+    &lt;p&gt;Each week&amp;rsquo;s credit has two parts: a post on this board and, if it is your week, a brief summary of your item in class. The Weekly AI Updates discussion opens each class, and I usually call on four students during that discussion. If you miss class that week, you may give your summary at the next class you attend.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Deadline&lt;/h2&gt;
+    &lt;p&gt;Post your update by &lt;strong&gt;[time] on the [day] before class&lt;/strong&gt;. Because the class meets on [day], this deadline gives me time to read every post before class.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Task&lt;/h2&gt;
+    &lt;ol style=&quot;margin-top: 0;&quot;&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;Choose one item.&lt;/strong&gt; Choose a news story, blog post, or podcast episode about AI in general, AI in legal work, or AI in legal research. The item must be current, meaning that it was published or released after the previous class. For the Week 2 update, choose an item published after [date]. If you cannot find a current item that interests you, you may use one from the previous week.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;Consider subscribing to one source.&lt;/strong&gt; I recommend subscribing to one email newsletter or podcast feed that covers AI in law. A subscription delivers current headlines to you each week, so you do not have to search for an item. The Suggested Sources section below lists options, but you may choose a source that is not on the list. You may also search for an item each week instead of subscribing.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;Write your post.&lt;/strong&gt; Your post should run 200 to 400 words and should include the following:
+            &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+                &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Write a descriptive title, not just Week 1 or something like that.&lt;/li&gt;
+                &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Use these categories as headings:
+                    &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+                        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Title (of the blog post, article, or podcast episode)&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Source&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Date&lt;/li&gt;
+                        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Link&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Summarize the item&amp;rsquo;s substance.&lt;/li&gt;
+                &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;Give your own reaction.&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;Post in the text box.&lt;/strong&gt; Click &lt;strong&gt;Reply&lt;/strong&gt; and type your post in the text box. Do not upload a document.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;strong&gt;Prepare to speak briefly in class.&lt;/strong&gt; I usually call on four students to discuss their posts. Be ready to tell the class what your item says, why you chose it, and how you feel about it. If the class wants to discuss your item further, we will do so; otherwise, we will move on to the next student.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;p&gt;You may reply to your classmates&amp;rsquo; posts, but you do not have to. Occasionally, two students will choose the same item, which is fine as long as each student&amp;rsquo;s post provides their own summary and reaction.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Using AI to Write Your Post&lt;/h2&gt;
+    &lt;p&gt;You may use any AI tool while writing your post, but you must read or listen to the item yourself. Do not paste an AI tool&amp;rsquo;s summary of the item into your post. I suggest a two-step process. First, write a rough draft yourself, preferably in complete sentences, although an outline also works. Then ask an AI tool to help you refine the draft. Your final post must give your own summary of the item and your own reaction to it.&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Suggested Sources&lt;/h2&gt;
+    &lt;h3 style=&quot;color: #1e407c; margin: 16px 0 6px 0;&quot;&gt;Legal news and blogs&lt;/h3&gt;
+    &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.geeklawblog.com/&quot;&gt;3 Geeks and a Law Blog&lt;/a&gt;: a long-running legal technology blog that covers AI along with other topics.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://abovethelaw.com/tag/ai-legal-beat/&quot;&gt;Above the Law&amp;rsquo;s AI Legal Beat&lt;/a&gt;: articles on AI.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.ailawlibrarians.com/&quot;&gt;AI Law Librarians&lt;/a&gt;: a blog by law librarians about generative AI, legal research, and legal education.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.artificiallawyer.com/&quot;&gt;Artificial Lawyer&lt;/a&gt;: legal technology and AI news, with email news alerts.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.bloomberglaw.com/bloomberglawnews/artificial-intelligence&quot;&gt;Bloomberg Law News: Artificial Intelligence&lt;/a&gt;: Bloomberg Law&amp;rsquo;s AI newsletter.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://thebrainyacts.beehiiv.com/subscribe&quot;&gt;The Brainyacts&lt;/a&gt;: an email newsletter with AI tips and current developments.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.law360.com/ai&quot;&gt;Law360: AI&lt;/a&gt;: Law360&amp;rsquo;s AI coverage, with a weekly newsletter.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.lawnext.com/&quot;&gt;LawSites&lt;/a&gt;: Bob Ambrogi&amp;rsquo;s long-running blog on legal technology, including AI.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3 style=&quot;color: #1e407c; margin: 16px 0 6px 0;&quot;&gt;General AI&lt;/h3&gt;
+    &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.normaltech.ai/&quot;&gt;AI as Normal Technology&lt;/a&gt;: a newsletter by two Princeton computer science professors.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.oneusefulthing.org/&quot;&gt;One Useful Thing&lt;/a&gt;: Ethan Mollick&amp;rsquo;s newsletter on using AI at work.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3 style=&quot;color: #1e407c; margin: 16px 0 6px 0;&quot;&gt;Podcasts&lt;/h3&gt;
+    &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.geeklawblog.com/podcast&quot;&gt;The Geek in Review&lt;/a&gt;: legal information, innovation, and AI in practice.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.lawnext.com/category/lawnext&quot;&gt;LawNext&lt;/a&gt;: Bob Ambrogi&amp;rsquo;s interviews with legal technology founders.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.lawnext.com/category/legaltech-week&quot;&gt;Legaltech Week&lt;/a&gt;: a weekly roundtable on legal technology and AI news.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;&lt;a style=&quot;color: #2b7abc;&quot; href=&quot;https://www.adr.org/podcasts/ai-and-the-future-of-law/&quot;&gt;AI and the Future of Law&lt;/a&gt;: the American Arbitration Association&amp;rsquo;s podcast with legal industry leaders.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div style=&quot;background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin: 16px 0;&quot;&gt;
+        &lt;p&gt;&lt;a class=&quot;inline_disabled&quot; href=&quot;https://rlfordon.github.io/resources/staying-current/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Additional Sources for Following AI and Law (Collected by Law Librarian Rebecca Fordon)&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+    &lt;h2 style=&quot;color: #1e407c; border-bottom: 2px solid #2b7abc; padding-bottom: 4px;&quot;&gt;Criteria&lt;/h2&gt;
+    &lt;p&gt;Your update passes when it meets all of the following criteria:&lt;/p&gt;
+    &lt;ul style=&quot;margin-top: 6px;&quot;&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The post identifies one item by title, source, and date and includes a working link.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The post has a descriptive title.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The item&amp;rsquo;s topic is AI, and it appeared in the past week (or the week before if no item was available this week).&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The post runs 200 to 400 words.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The post summarizes the item&amp;rsquo;s substance and gives your own reaction. The post is not an AI tool&amp;rsquo;s summary pasted into the text box.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;The post generally uses complete sentences, correct spelling, and correct grammar. This criterion is a requirement, but I apply it leniently.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;You post by [time] on the [day] before class. A post that meets the other criteria but arrives late is recorded at 85%.&lt;/li&gt;
+        &lt;li style=&quot;margin-bottom: 6px;&quot;&gt;If I call on you, you will briefly summarize your item in class. If you miss that class, you give your summary at the next class you attend. This makeup option does not apply to Week 6, because Week 6 is the last class with an updates discussion.&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div style=&quot;background-color: #f0f4f9; border-left: 4px solid #1e407c; padding: 12px 16px; margin: 16px 0;&quot;&gt;
+        &lt;p style=&quot;margin: 0;&quot;&gt;I grade the posts for completion: a timely, good-faith post that meets these criteria passes.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</textarea>
+      </details>
+    </div>
+    <div class="license">
+      <h3>License</h3>
+      <p>Julie Tedjeske Crane releases this course-related material under the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)</a>. You may adapt and republish the material for noncommercial educational use, as long as you credit Julie.</p>
+      <p class="small">Suggested citation: Julie Tedjeske Crane, <i>Weekly AI Update Assignment</i>, <i>in</i> <i>AI and Legal Research: Teaching Materials</i> (2026), https://jmtedjeske-crane.github.io/materials/weekly-ai-update.html (licensed under CC BY-NC 4.0).</p>
+    </div>
+  </section>
+</main>
+
+<footer class="band" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <span class="email" id="email" data-u="eksejdetmj" data-d="moc.liamg"></span><noscript><span class="email">jmtedjeske [at] gmail [dot] com</span></noscript>
+      <button class="copy" id="copy-email" type="button">Copy email address</button>
+    </div>
+    <ul class="profiles" aria-label="Profiles">
+      <li><a href="https://dickinsonlaw.psu.edu/directory/julie-tedjeske-crane">Dickinson Law profile</a></li>
+      <li><a href="https://www.linkedin.com/in/julie-tedjeske-crane-65117813/">LinkedIn</a></li>
+      <li><a href="https://ripslawlibrarian.wordpress.com/author/julietedjeskecrane/">RIPS Law Librarian Blog posts</a></li>
+    </ul>
+    <p class="disclaimer">This site is Julie Tedjeske Crane&rsquo;s personal project. It is not an official publication of Penn State Dickinson Law, and the views expressed on this site are Julie&rsquo;s own. The teaching materials on this site are for educational use. The materials do not provide legal advice, and instructors should adapt the materials to their own institutions&rsquo; policies. Teaching materials &copy; 2026 Julie Tedjeske Crane, licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var em = document.getElementById('email');
+  if (em && em.dataset.u) {
+    em.textContent = em.dataset.u.split('').reverse().join('') + '\u0040' + em.dataset.d.split('').reverse().join('');
+  }
+  function wireCopy(btnId, srcId, label) {
+    var btn = document.getElementById(btnId), src = document.getElementById(srcId);
+    if (!btn || !src) return;
+    btn.addEventListener('click', function () {
+      var text = src.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(src);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected: press Ctrl+C';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectIt);
+      } else { selectIt(); }
+      setTimeout(function () { btn.textContent = label; }, 2500);
+    });
+  }
+  wireCopy('copy-email', 'email', 'Copy email address');
+  wireCopy('copy-cite', 'cite', 'Copy citation');
+})();
+</script>
+<script>
+(function () {
+  var btn = document.getElementById('copy-canvas'), src = document.getElementById('canvas-code');
+  if (!btn || !src) return;
+  btn.addEventListener('click', function () {
+    function selectIt() { var d = src.closest('details'); if (d) d.open = true; src.focus(); src.select(); btn.textContent = 'Selected: press Ctrl+C'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(src.value).then(function () { btn.textContent = 'Copied'; }, selectIt);
+    } else { selectIt(); }
+    setTimeout(function () { btn.textContent = 'Copy Canvas code'; }, 2500);
+  });
+})();
+</script>
+</body>
+</html>
